@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.ceec2bf6.css",
+    "main.js": "/portfolio/static/js/main.c46518ae.js",
+    "static/media/your-photo.jpg": "/portfolio/static/media/your-photo.846eaad7757f05a8068b.jpg",
+    "static/media/your-resume.pdf": "/portfolio/static/media/your-resume.6b38379b3a1d4a9751ae.pdf",
+    "static/media/iit-bombay-python.jpg": "/portfolio/static/media/iit-bombay-python.9e0d38cdabd696ba986b.jpg",
+    "static/media/iit-bombay-java.jpg": "/portfolio/static/media/iit-bombay-java.553f5aba407d99fc9392.jpg",
+    "static/media/cognitive-class.jpg": "/portfolio/static/media/cognitive-class.9a5f62b5990a355f6f5a.jpg",
+    "static/media/apna-college-dsa.jpg": "/portfolio/static/media/apna-college-dsa.cf6759b8f47d07cad299.jpg",
+    "static/media/forage-genai.jpg": "/portfolio/static/media/forage-genai.2b946ec8dea592f3d65f.jpg",
+    "static/media/ibm-certificate.jpg": "/portfolio/static/media/ibm-certificate.0c35204f3915d2d8fe33.jpg",
+    "static/media/data_analytics.jpg": "/portfolio/static/media/data_analytics.655d86064ec3f717273e.jpg",
+    "static/media/fraud_detection.jpg": "/portfolio/static/media/fraud_detection.3ca49338ebc9c5f8fc9a.jpg",
+    "static/media/temp_prediction.jpg": "/portfolio/static/media/temp_prediction.f08ea4d0a314489bb409.jpg",
+    "index.html": "/portfolio/index.html",
+    "main.ceec2bf6.css.map": "/portfolio/static/css/main.ceec2bf6.css.map",
+    "main.c46518ae.js.map": "/portfolio/static/js/main.c46518ae.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ceec2bf6.css",
+    "static/js/main.c46518ae.js"
+  ]
+}
