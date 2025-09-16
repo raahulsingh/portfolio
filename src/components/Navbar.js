@@ -4,9 +4,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <a href="javascript:void(0)" className="navbar-logo disabled-link">
-        Portfolio
-        </a>
+       <button className="navbar-logo disabled-button" onClick={(e) => e.preventDefault()}>
+          Portfolio
+        </button>
         <ul className="nav-menu">
             <li className="nav-item">
             <a href="#" className="nav-links">Home</a>
