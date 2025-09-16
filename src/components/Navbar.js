@@ -4,8 +4,8 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <a className="navbar-logo">
-          Portfolio
+        <a href="javascript:void(0)" className="navbar-logo disabled-link">
+        Portfolio
         </a>
         <ul className="nav-menu">
             <li className="nav-item">
