@@ -1,0 +1,76 @@
+.about-me-section {
+    padding: 4rem 2rem;
+    background-color: var(--card-bg-color);
+    text-align: center;
+}
+
+.about-main-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    gap: 3rem;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+    margin-bottom: 2rem; /* Add space below this container */
+}
+
+.about-left-col {
+    flex-shrink: 0;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--accent-color);
+}
+
+.about-right-col {
+    flex: 1;
+    max-width: 600px;
+}
+
+.about-text {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.about-text h3 {
+    font-weight: 700;
+    margin-top: 0;
+}
+
+/* New container for the skills and interests */
+.skills-and-interests-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.tech-skills-card {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.tech-skills-card h3 {
+    margin-top: 0;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .about-main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-right-col {
+        text-align: center;
+    }
+    .about-text {
+        text-align: center;
+    }
+}

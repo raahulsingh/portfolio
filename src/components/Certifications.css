@@ -1,0 +1,76 @@
+.certifications-section {
+    padding: 4rem 2rem;
+    background-color: var(--bg-color);
+    text-align: center;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.certification-card {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: left;
+    transition: transform 0.3s;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+}
+
+.cert-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.cert-details {
+    text-align: center;
+}
+
+.cert-title {
+    font-size: 1.25rem;
+    margin-top: 0;
+    color: var(--heading-color);
+}
+
+.cert-date {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin: 0;
+}
+
+.cert-text {
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.cert-link {
+    display: inline-block;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: color 0.3s;
+}
+
+.cert-link:hover {
+    color: #0080c0;
+}
+
+/* Ensure the icon is styled correctly if you're using FontAwesome */
+.cert-link i {
+    margin-left: 0.5rem;
+}
