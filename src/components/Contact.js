@@ -1,56 +1,102 @@
-import './Contact.css'; // Create this file for specific styles
+import './Contact.css';
 
 const Contact = () => {
   return (
-    <section id="Contact" className="contact-section">
+    <section id="Get In Touch" className="contact-section">
       <div className="container">
         <h2 className="section-title">Get In Touch</h2>
-        <p className="section-subtitle">Have a project in mind or just want to say hello? I'd love to hear from you.</p>
+        <p className="section-subtitle">Let's build something amazing together. Reach out via the form below or through my professional channels.</p>
         
         <div className="contact-flex">
-          <div className="contact-card contact-form">
-            <h3>Send me a message</h3>
-               <form action="https://api.web3forms.com/submit" method="POST" id="form">
-               <input type="hidden" name="access_key" value="9a625448-2dd3-4932-8dc1-898b4b88b08f"></input>
-              <div className="form-group">
-                <label htmlFor="name">Name *</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required />
+          {/* Contact Form Card */}
+          <div className="contact-card contact-form-card">
+            <div className="card-header">
+              <i className="fas fa-paper-plane"></i>
+              <h3>Send Me a Message</h3>
+            </div>
+            <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+              <input type="hidden" name="access_key" value="9a625448-2dd3-4932-8dc1-898b4b88b08f" />
+              
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="name">Full Name</label>
+                  <input type="text" id="name" name="name" placeholder="John Doe" required />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="john@example.com" required />
+                </div>
               </div>
+
               <div className="form-group">
-                <label htmlFor="email">Email *</label>
-                <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+                <label htmlFor="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Project Inquiry / Collaboration" required />
               </div>
+
               <div className="form-group">
-                <label htmlFor="subject">Subject *</label>
-                <input type="text" id="subject" name="subject" placeholder="What's this about?" required />
+                <label htmlFor="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell me more about your ideas..." required></textarea>
               </div>
-              <div className="form-group">
-                <label htmlFor="message">Message *</label>
-                <textarea id="message" name="message" placeholder="Tell me about your project or just say hello..." required></textarea>
-              </div>
-              <button type="submit" className="btn btn-primary">Send Message</button>
+
+              <button type="submit" className="btn btn-primary submit-btn">
+                Send Message <i className="fas fa-arrow-right"></i>
+              </button>
             </form>
           </div>
           
-          <div className="contact-card contact-info-block">
-            <h3>Contact Information</h3>
-            <ul>
-              <li><i className="fas fa-envelope icon"></i> rahul.singh.11gts@gmail.com</li>
-              <li><i className="fas fa-phone-alt icon"></i> +91 9534038515</li>
-              <li><i className="fas fa-map-marker-alt icon"></i> Uttarakhand, India</li>
-            </ul>
+          {/* Contact Info Card */}
+          <div className="contact-card contact-info-card">
+            <div className="info-section">
+              <h3>Contact Details</h3>
+              <div className="info-item">
+                <div className="info-icon">
+                  <i className="fas fa-envelope"></i>
+                </div>
+                <div className="info-content">
+                  <span>Email Me</span>
+                  <p>rahulsingh.11gts@gmail.com</p>
+                </div>
+              </div>
 
-            <h3 className="mt-4">Connect with me</h3>
-            <div className="social-links-contact">
-              <a href="https://www.github.com/raahulsingh" className="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i> GitHub</a>
-              <a href="https://www.linkedin.com/in/rahulkumar6474/" className="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i> LinkedIn</a>
-              {/* <a href="#" className="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i> Twitter</a> */}
-              {/* <a href="#" className="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i className="fas fa-envelope"></i> Email</a> */}
+              <div className="info-item">
+                <div className="info-icon">
+                  <i className="fas fa-phone-alt"></i>
+                </div>
+                <div className="info-content">
+                  <span>Call Me</span>
+                  <p>+91 9534038515</p>
+                </div>
+              </div>
+
+              <div className="info-item">
+                <div className="info-icon">
+                  <i className="fas fa-map-marker-alt"></i>
+                </div>
+                <div className="info-content">
+                  <span>Location</span>
+                  <p>Uttarakhand, India</p>
+                </div>
+              </div>
             </div>
 
-            <div className="quick-response mt-4">
-              <h3 className="mb-2">Quick Response</h3>
-              <p>I typically respond to messages within 24 hours. For urgent inquiries, feel free to reach out via phone or LinkedIn.</p>
+            <div className="info-section">
+              <h3>Digital Presence</h3>
+              <div className="social-grid">
+                <a href="https://www.github.com/raahulsingh" target="_blank" rel="noopener noreferrer" className="social-btn github">
+                  <i className="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/rahulkumar6474/" target="_blank" rel="noopener noreferrer" className="social-btn linkedin">
+                  <i className="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:rahulsingh.11gts@gmail.com" className="social-btn email">
+                  <i className="fas fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+
+            <div className="response-tag">
+              <i className="fas fa-clock"></i>
+              <p>Average response time: &lt; 24 hours</p>
             </div>
           </div>
         </div>

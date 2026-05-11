@@ -1,54 +1,267 @@
 .hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #050505;
+    overflow: hidden;
+}
+
+/* Dynamic Background Shapes */
+.hero-bg-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: blur(100px);
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.shape-1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(59, 130, 246, 0.2);
+    top: -100px;
+    right: -100px;
+    animation: moveShape 20s infinite alternate;
+}
+
+.shape-2 {
+    width: 300px;
+    height: 300px;
+    background: rgba(147, 51, 234, 0.15);
+    bottom: -50px;
+    left: -50px;
+    animation: moveShape 25s infinite alternate-reverse;
+}
+
+.shape-3 {
+    width: 200px;
+    height: 200px;
+    background: rgba(34, 197, 94, 0.1);
+    top: 50%;
+    left: 20%;
+}
+
+@keyframes moveShape {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-100px, 100px); }
+}
+
+/* Glassmorphism Card */
+.hero-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-glass-card {
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4rem;
+    border-radius: 40px;
+    text-align: center;
+    max-width: 800px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    animation: slideUpFade 1s ease-out;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 15px;
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.hero-main-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+}
+
+.highlight {
+    color: #3b82f6;
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Typing Effect Container */
+.typing-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    height: 3rem;
+}
+
+.static-text {
+    font-size: 1.5rem;
+    color: #888;
+}
+
+.dynamic-role {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    position: relative;
+    animation: fadeInOut 2.5s infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; transform: translateY(10px); }
+    20%, 80% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-bio {
+    font-size: 1.1rem;
+    color: #aaa;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Buttons */
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.btn-glow {
+    position: relative;
+    padding: 1rem 2.5rem;
+    background: #3b82f6;
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.btn-glow:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+    transform: translateY(-3px);
+}
+
+.btn-glass {
+    padding: 1rem 2.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Social Strip */
+.hero-social-strip {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.hero-social-strip a {
+    font-size: 1.5rem;
+    color: #555;
+    transition: all 0.3s;
+}
+
+.hero-social-strip a:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
+
+/* Floating Icons */
+.floating-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.tech-icon {
+    position: absolute;
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.05);
+    animation: float 6s infinite ease-in-out;
+}
+
+.java { top: 20%; right: 15%; animation-delay: 0s; color: rgba(248, 152, 32, 0.1); }
+.react { bottom: 25%; right: 10%; animation-delay: 1s; color: rgba(97, 218, 251, 0.1); }
+.spring { top: 30%; left: 10%; animation-delay: 2s; color: rgba(109, 179, 63, 0.1); }
+.docker { bottom: 20%; left: 15%; animation-delay: 3s; color: rgba(36, 150, 237, 0.1); }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* Scroll Down */
+.scroll-down-wrapper {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    padding: 0 2rem;
+    color: #444;
 }
 
-.hero-name {
-    font-size: 4rem;
-    font-weight: 700;
-    margin: 0;
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, #3b82f6, transparent);
+    animation: scrollLine 2s infinite;
 }
 
-.hero-name span {
-    color: var(--accent-color);
+@keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    50.1% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
-.hero-tagline {
-    font-size: 1.5rem;
-    font-weight: 300;
-    max-width: 700px;
-    color: #ccc;
-}
-
-.hero-buttons {
-    margin-top: 1.5rem;
-}
-
-.social-icons {
-    margin-top: 2rem;
-}
-
-.social-icons a {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    margin: 0 1rem;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: var(--accent-color);
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
-    .hero-name {
-        font-size: 3rem;
-    }
-    .hero-tagline {
-        font-size: 1.2rem;
-    }
+    .hero-glass-card { padding: 2rem; }
+    .hero-main-title { font-size: 2.5rem; }
+    .typing-container { flex-direction: column; height: auto; margin-bottom: 3rem; }
+    .hero-actions { flex-direction: column; gap: 1rem; }
 }

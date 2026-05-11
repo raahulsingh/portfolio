@@ -1,6 +1,4 @@
-
 import './Certifications.css';
-// Import your certificate images here
 import apnaDsaCert from '../images/apna-college-dsa.jpg';
 import cognitiveCert from '../images/cognitive-class.jpg';
 import forageCert from '../images/forage-genai.jpg';
@@ -11,50 +9,59 @@ import iitPythonCert from '../images/iit-bombay-python.jpg';
 const certificatesData = [
   {
     id: 1,
-    image: ibmCert, // Use the imported variable
-    title: 'Data Analysis with Python — IBM SkillsBuild',
-    date: 'Dec 2024',
-    details: 'Applied Python libraries (Pandas, NumPy, Matplotlib) for data cleaning, analyzing, and visualization.',
-    link: 'https://courses.yl-ptech.skillsnetwork.site/certificates/fb3e4043d2e84b6daeb148918798aaf8',
+    image: iitJavaCert,
+    title: 'Java Training',
+    issuer: 'IIT Bombay (Spoken Tutorial)',
+    score: '97.50%',
+    details: 'Mastered Core Java, OOPs, Exception Handling, Multithreading, and File I/O.',
+    link: 'https://drive.google.com/file/d/1KnovzqS6lORWvSHQiZosLCTO68Gt-mkB/view',
+    category: 'Java'
   },
   {
     id: 2,
-    image: iitPythonCert, // Use the imported variable
-    title: 'Python 3.4.3 Training — IIT Bombay (Spoken Tutorial)',
-    date: 'Dec 2024',
-    details: 'Learned Python fundamentals, data structures, file operations, and scripting for problem-solving and automation.',
-    link: 'https://drive.google.com/file/d/1tIcM0bq_xdoI4jzkCcMPXXFb03ZDrirh/view',
+    image: apnaDsaCert,
+    title: 'DSA with Java',
+    issuer: 'Apna College',
+    details: 'Intensive training in Data Structures and Algorithms with complex problem-solving.',
+    link: 'https://drive.google.com/file/d/1ewmNa8gnH_kfh2DjX3CkOd0qo1BUiFCa/view',
+    category: 'Java'
   },
   {
     id: 3,
-    image: cognitiveCert, // Use the imported variable
-    title: 'SQL and Relational Databases 101 — Cognitive Class',
-    date: 'May 2025',
-    details: 'Acquired skills in database design, SQL queries, normalization, and relational database management.',
+    image: cognitiveCert,
+    title: 'SQL & Relational Databases',
+    issuer: 'Cognitive Class | IBM',
+    details: 'Database design, normalization, and complex SQL query optimization.',
     link: 'https://courses.cognitiveclass.ai/certificates/85873af33e45492a87cbf0112cfe3b5c',
+    category: 'Database'
   },
   {
     id: 4,
-    image: iitJavaCert, // Use the imported variable
-    title: 'Java Training — IIT Bombay (Spoken Tutorial)',
-    date: 'May 2025',
-    details: 'Gained strong foundations in Core Java, covering OOP concepts, exception handling, multithreading, and file handling.',
-    link: 'https://drive.google.com/file/d/1KnovzqS6lORWvSHQiZosLCTO68Gt-mkB/view',
+    image: ibmCert,
+    title: 'Data Analysis with Python',
+    issuer: 'IBM SkillsBuild',
+    details: 'Utilized Pandas, NumPy, and Matplotlib for end-to-end data processing pipelines.',
+    link: 'https://courses.yl-ptech.skillsnetwork.site/certificates/fb3e4043d2e84b6daeb148918798aaf8',
+    category: 'Data Science'
   },
   {
     id: 5,
-    image: forageCert, // Use the imported variable
-    title: 'GenAI Powered Data Analytics Job Simulation — Forage',
-    details: 'Completed a virtual internship simulation, applying Generative AI tools for analysing datasets and deriving insights.',
-    link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_WzQyReFwwxb8vk6MQ_1751629753224_completion_certificate.pdf',
+    image: iitPythonCert,
+    title: 'Python 3.4.3',
+    issuer: 'IIT Bombay (Spoken Tutorial)',
+    details: 'Functional programming, scripting, and automation using Python fundamentals.',
+    link: 'https://drive.google.com/file/d/1tIcM0bq_xdoI4jzkCcMPXXFb03ZDrirh/view',
+    category: 'Python'
   },
   {
     id: 6,
-    image: apnaDsaCert, // Use the imported variable
-    title: 'DSA with Java — Apna College',
-    details: 'Strengthened problem-solving by implementing Data Structures and Algorithms in Java with hands-on coding challenges.',
-    link: 'https://drive.google.com/file/d/1ewmNa8gnH_kfh2DjX3CkOd0qo1BUiFCa/view',
-  },
+    image: forageCert,
+    title: 'GenAI Data Analytics',
+    issuer: 'Forage (Job Simulation)',
+    details: 'Leveraged Generative AI tools for advanced data insight generation.',
+    link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_WzQyReFwwxb8vk6MQ_1751629753224_completion_certificate.pdf',
+    category: 'GenAI'
+  }
 ];
 
 const Certifications = () => {
@@ -62,17 +69,27 @@ const Certifications = () => {
     <section id="Certifications" className="certifications-section">
       <div className="container">
         <h2 className="section-title">Certifications</h2>
-        <p className="section-subtitle">A showcase of my professional certifications</p>
+        <p className="section-subtitle">Professional validation of my technical expertise and commitment to continuous learning.</p>
+        
         <div className="certifications-grid">
           {certificatesData.map((cert) => (
-            <div key={cert.id} className="certification-card">
-              <img src={cert.image} alt={cert.title} className="cert-image" />
-              <div className="cert-details">
-                <h3 className="cert-title">{cert.title}</h3>
-                <p className="cert-date">{cert.date}</p>
-                <p className="cert-text">{cert.details}</p>
-                <a href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-link">
-                  View Certificate <i className="fas fa-external-link-alt"></i>
+            <div key={cert.id} className="cert-card">
+              <div className="cert-image-container">
+                <img src={cert.image} alt={cert.title} className="cert-img" />
+                <div className="cert-overlay">
+                  <a href={cert.link} target="_blank" rel="noopener noreferrer" className="view-btn">
+                    <i className="fas fa-search-plus"></i> View Full
+                  </a>
+                </div>
+                {cert.score && <div className="cert-score-badge">{cert.score}</div>}
+              </div>
+              <div className="cert-info">
+                <span className="cert-category">{cert.category}</span>
+                <h3 className="cert-name">{cert.title}</h3>
+                <p className="cert-issuer"><i className="fas fa-university"></i> {cert.issuer}</p>
+                <p className="cert-desc">{cert.details}</p>
+                <a href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-action-link">
+                  Verify Credentials <i className="fas fa-external-link-alt"></i>
                 </a>
               </div>
             </div>
