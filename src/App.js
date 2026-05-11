@@ -7,7 +7,7 @@ import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
-import Footer from './components/Footer';
+import Footer from './components/Footer.js';
 
 function App() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -27,6 +27,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;
