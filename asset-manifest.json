@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.e3fd91d3.css",
-    "main.js": "./static/js/main.1d8119f5.js",
+    "main.css": "./static/css/main.d52701c9.css",
+    "main.js": "./static/js/main.05b55b82.js",
     "static/media/your-photo.jpg": "./static/media/your-photo.846eaad7757f05a8068b.jpg",
     "static/media/your-resume.pdf": "./static/media/your-resume.b634cd0f435361d25dca.pdf",
     "static/media/iit-bombay-python.jpg": "./static/media/iit-bombay-python.9e0d38cdabd696ba986b.jpg",
@@ -16,11 +16,11 @@
     "static/media/bus_search.png": "./static/media/bus_search.5110919128717ce1a3c9.png",
     "static/media/bus_home.png": "./static/media/bus_home.0ff85a3c0ec62c1e6630.png",
     "index.html": "./index.html",
-    "main.e3fd91d3.css.map": "./static/css/main.e3fd91d3.css.map",
-    "main.1d8119f5.js.map": "./static/js/main.1d8119f5.js.map"
+    "main.d52701c9.css.map": "./static/css/main.d52701c9.css.map",
+    "main.05b55b82.js.map": "./static/js/main.05b55b82.js.map"
   },
   "entrypoints": [
-    "static/css/main.e3fd91d3.css",
-    "static/js/main.1d8119f5.js"
+    "static/css/main.d52701c9.css",
+    "static/js/main.05b55b82.js"
   ]
 }
