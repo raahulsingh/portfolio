@@ -1,13 +1,14 @@
 .resume-section {
     padding: 6rem 2rem;
-    background-color: var(--bg-color);
+    background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+    position: relative;
 }
 
 .resume-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 3rem;
-    margin: 3rem 0;
+    margin: 4rem 0;
 }
 
 .resume-column {
@@ -19,85 +20,121 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .column-header i {
-    font-size: 1.5rem;
-    color: #3b82f6;
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .column-header .subsection-title {
     margin-bottom: 0;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
 }
 
-/* Timeline Styles */
+/* Stunning Premium Timeline */
 .timeline {
     position: relative;
-    padding-left: 1.5rem;
-    border-left: 2px solid #333;
+    padding-left: 2rem;
+    border-left: 2px solid rgba(59, 130, 246, 0.2);
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateX(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.025);
 }
 
 .timeline-dot {
     position: absolute;
-    left: -29px;
-    top: 0;
-    width: 14px;
-    height: 14px;
+    left: -39px;
+    top: 2rem;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background-color: #3b82f6;
-    border: 3px solid var(--bg-color);
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    background: #3b82f6;
+    border: 4px solid #050505;
+    box-shadow: 0 0 15px #3b82f6;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    background: #8b5cf6;
+    box-shadow: 0 0 20px #8b5cf6;
+    transform: scale(1.2);
 }
 
 .resume-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 0.4rem;
     color: #fff;
+    font-weight: 700;
 }
 
 .resume-sub-info {
-    font-size: 0.9rem;
-    color: #3b82f6;
+    font-size: 0.85rem;
+    color: #60a5fa;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
 }
 
 .resume-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .resume-list li {
     position: relative;
     padding-left: 1.5rem;
     margin-bottom: 0.8rem;
-    color: #aaa;
+    color: #bbb;
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
 .resume-list li::before {
-    content: "→";
+    content: "▹";
     position: absolute;
     left: 0;
     color: #3b82f6;
+    font-size: 1.1rem;
 }
 
 .resume-text {
-    color: #aaa;
-    line-height: 1.6;
+    color: #bbb;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 0.95rem;
 }
 
-/* Certification Styles */
+/* Premium Certification List */
 .certification-list {
     display: flex;
     flex-direction: column;
@@ -105,61 +142,168 @@
 }
 
 .cert-item {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.015);
+    padding: 1.8rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
     position: relative;
+    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
 
 .cert-item:hover {
-    border-color: #3b82f6;
-    background: rgba(59, 130, 246, 0.05);
-    transform: translateY(-5px);
+    border-color: rgba(139, 92, 246, 0.4);
+    background: rgba(139, 92, 246, 0.03);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .cert-badge {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: #3b82f6;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: linear-gradient(135deg, #22c55e, #10b981);
     color: #fff;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
 }
 
 .cert-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    margin: 0 0 0.4rem 0;
     color: #fff;
+    font-weight: 700;
 }
 
 .cert-info {
     font-size: 0.9rem;
-    color: #aaa;
+    color: #888;
+    margin: 0;
 }
 
-/* Download Section */
+/* Download Box */
 .resume-download-box {
-    margin-top: 4rem;
-    padding: 3rem;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
-    border-radius: 20px;
-    border: 1px solid #333;
+    margin-top: 5rem;
+    padding: 3.5rem 2rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
     text-align: center;
+    backdrop-filter: blur(10px);
 }
 
 .resume-download-box p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #ddd;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
+    font-weight: 500;
 }
 
+.resume-download-box .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2.5rem;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: #fff;
+    border: none;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.resume-download-box .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6);
+}
+
+/* Ultra Premium Mobile Customizations */
 @media (max-width: 768px) {
+    .resume-section {
+        padding: 4rem 1.2rem;
+    }
+
     .resume-grid {
-        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin: 2.5rem 0;
+    }
+
+    .column-header {
+        margin-bottom: 2rem;
+    }
+
+    .timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timeline-item {
+        padding: 1.5rem 1.2rem;
+        border-radius: 16px;
+        margin-bottom: 1.8rem;
+    }
+
+    .timeline-dot {
+        left: -31px;
+        top: 1.5rem;
+        width: 14px;
+        height: 14px;
+    }
+
+    .resume-title {
+        font-size: 1.15rem;
+    }
+
+    .resume-sub-info {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .resume-list li {
+        font-size: 0.9rem;
+    }
+
+    .resume-text {
+        font-size: 0.9rem;
+    }
+
+    .cert-item {
+        padding: 1.5rem 1.2rem;
+        border-radius: 16px;
+    }
+
+    .cert-title {
+        font-size: 1.1rem;
+        padding-right: 4rem; /* ensure it doesn't collide with score badge */
+    }
+
+    .cert-badge {
+        top: 1rem;
+        right: 1rem;
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    .resume-download-box {
+        margin-top: 3.5rem;
+        padding: 2.5rem 1.2rem;
+        border-radius: 20px;
+    }
+
+    .resume-download-box p {
+        font-size: 1.1rem;
+    }
+
+    .resume-download-box .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
     }
 }
