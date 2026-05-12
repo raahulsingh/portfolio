@@ -1,10 +1,17 @@
+import { useState } from 'react';
 import './Navbar.css';
 
 const Navbar = ({ setActiveSection }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const handleNavClick = (section) => {
     setActiveSection(section);
-    // Smooth scroll to top when changing sections
+    setIsMobileMenuOpen(false); // Close menu on click
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -13,7 +20,15 @@ const Navbar = ({ setActiveSection }) => {
         <a href="#hero" className="navbar-logo" onClick={(e) => { e.preventDefault(); handleNavClick('hero'); }}>
           Portfolio
         </a>
-        <ul className="nav-menu">
+
+        {/* Mobile Hamburger Button */}
+        <div className={`menu-icon ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
+          <div className="bar1"></div>
+          <div className="bar2"></div>
+          <div className="bar3"></div>
+        </div>
+
+        <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           <li className="nav-item">
             <a href="#hero" className="nav-links" onClick={(e) => { e.preventDefault(); handleNavClick('hero'); }}>Home</a>
           </li>
@@ -39,4 +54,3 @@ const Navbar = ({ setActiveSection }) => {
 };
 
 export default Navbar;
-
