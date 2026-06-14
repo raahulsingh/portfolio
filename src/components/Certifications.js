@@ -1,4 +1,5 @@
 import './Certifications.css';
+import ResponsiveImage from './ResponsiveImage';
 import apnaDsaCert from '../images/apna-college-dsa.jpg';
 import cognitiveCert from '../images/cognitive-class.jpg';
 import forageCert from '../images/forage-genai.jpg';
@@ -75,10 +76,18 @@ const Certifications = () => {
           {certificatesData.map((cert) => (
             <div key={cert.id} className="cert-card">
               <div className="cert-image-container">
-                <img src={cert.image} alt={cert.title} className="cert-img" />
+                <ResponsiveImage
+                  src={cert.image}
+                  alt={`${cert.title} certificate from ${cert.issuer}`}
+                  className="cert-img"
+                  width={400}
+                  height={250}
+                  aspectRatio="16 / 10"
+                  sizes="(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
                 <div className="cert-overlay">
                   <a href={cert.link} target="_blank" rel="noopener noreferrer" className="view-btn">
-                    <i className="fas fa-search-plus"></i> View Full
+                    <i className="fas fa-search-plus" aria-hidden="true"></i> View Full
                   </a>
                 </div>
                 {cert.score && <div className="cert-score-badge">{cert.score}</div>}
@@ -86,10 +95,10 @@ const Certifications = () => {
               <div className="cert-info">
                 <span className="cert-category">{cert.category}</span>
                 <h3 className="cert-name">{cert.title}</h3>
-                <p className="cert-issuer"><i className="fas fa-university"></i> {cert.issuer}</p>
+                <p className="cert-issuer"><i className="fas fa-university" aria-hidden="true"></i> {cert.issuer}</p>
                 <p className="cert-desc">{cert.details}</p>
                 <a href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-action-link">
-                  Verify Credentials <i className="fas fa-external-link-alt"></i>
+                  Verify Credentials <i className="fas fa-external-link-alt" aria-hidden="true"></i>
                 </a>
               </div>
             </div>

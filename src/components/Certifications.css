@@ -1,37 +1,45 @@
 .certifications-section {
-    padding: 6rem 2rem;
+    padding: clamp(2rem, 5vw, 6rem) clamp(1rem, 3vw, 2rem);
     background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
     position: relative;
+    contain: layout paint;
 }
 
 .certifications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: clamp(1.5rem, 3vw, 3rem);
+    margin-top: clamp(2rem, 4vw, 4rem);
 }
 
 .cert-card {
     background: rgba(255, 255, 255, 0.015);
-    border-radius: 24px;
+    border-radius: clamp(16px, 2vw, 24px);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.04);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.cert-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(59, 130, 246, 0.4);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    background: rgba(255, 255, 255, 0.025);
+@media (hover: hover) {
+    .cert-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(59, 130, 246, 0.4);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        background: rgba(255, 255, 255, 0.025);
+    }
+}
+
+.cert-card:active {
+    border-color: rgba(59, 130, 246, 0.3);
 }
 
 .cert-image-container {
     position: relative;
-    height: 220px;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
     background: #000;
 }
@@ -44,8 +52,10 @@
     display: block;
 }
 
-.cert-card:hover .cert-img {
-    transform: scale(1.12);
+@media (hover: hover) {
+    .cert-card:hover .cert-img {
+        transform: scale(1.12);
+    }
 }
 
 .cert-overlay {
@@ -53,6 +63,7 @@
     top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(5, 5, 5, 0.75);
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,8 +71,21 @@
     transition: all 0.3s ease;
 }
 
-.cert-card:hover .cert-overlay {
-    opacity: 1;
+@media (hover: hover) {
+    .cert-card:hover .cert-overlay {
+        opacity: 1;
+    }
+}
+
+/* On touch devices, overlay is always slightly visible for discoverability */
+@media (hover: none) {
+    .cert-overlay {
+        opacity: 0;
+    }
+
+    .cert-card:active .cert-overlay {
+        opacity: 1;
+    }
 }
 
 .view-btn {
@@ -72,39 +96,44 @@
     font-weight: 700;
     font-size: 0.95rem;
     text-decoration: none;
-    transform: translateY(20px);
+    transform: translate3d(0, 20px, 0);
     transition: all 0.3s ease;
     box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    min-height: 44px;
+    min-width: 44px;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.cert-card:hover .view-btn {
-    transform: translateY(0);
-}
-
-.view-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 25px rgba(59, 130, 246, 0.6);
+@media (hover: hover) {
+    .cert-card:hover .view-btn {
+        transform: translate3d(0, 0, 0);
+    }
+    
+    .view-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 25px rgba(59, 130, 246, 0.6);
+    }
 }
 
 .cert-score-badge {
     position: absolute;
-    top: 1.2rem;
-    left: 1.2rem;
+    top: clamp(0.8rem, 1.5vw, 1.2rem);
+    left: clamp(0.8rem, 1.5vw, 1.2rem);
     background: linear-gradient(135deg, #22c55e, #10b981);
     color: #fff;
     padding: 6px 14px;
     border-radius: 20px;
     font-weight: 800;
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
     box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
     z-index: 2;
 }
 
 .cert-info {
-    padding: 2rem;
+    padding: clamp(1.2rem, 2.5vw, 2rem);
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -121,7 +150,7 @@
 }
 
 .cert-name {
-    font-size: 1.4rem;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
     color: #fff;
     margin-top: 0;
     margin-bottom: 0.6rem;
@@ -129,7 +158,7 @@
 }
 
 .cert-issuer {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
     color: #888;
     margin-top: 0;
     margin-bottom: 1.2rem;
@@ -139,11 +168,11 @@
 }
 
 .cert-desc {
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 1.3vw, 0.95rem);
     color: #bbb;
     line-height: 1.7;
     margin-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1rem, 2.5vw, 2rem);
 }
 
 .cert-action-link {
@@ -151,61 +180,37 @@
     color: #60a5fa;
     text-decoration: none;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.cert-action-link:hover {
-    gap: 0.8rem;
+.cert-action-link:active {
     color: #93c5fd;
+    gap: 0.8rem;
 }
 
-/* Highly Optimized Premium Mobile View */
-@media (max-width: 768px) {
-    .certifications-section {
-        padding: 4rem 1.2rem;
+@media (hover: hover) {
+    .cert-action-link:hover {
+        gap: 0.8rem;
+        color: #93c5fd;
     }
+}
 
+/* ===== Mobile (< 768px) ===== */
+@media (max-width: 767px) {
     .certifications-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
-        margin-top: 2.5rem;
     }
+}
 
-    .cert-card {
-        border-radius: 20px;
-    }
-
-    .cert-image-container {
-        height: 190px;
-    }
-
-    .cert-score-badge {
-        top: 1rem;
-        left: 1rem;
-        font-size: 0.8rem;
-        padding: 4px 10px;
-    }
-
-    .cert-info {
-        padding: 1.5rem 1.2rem;
-    }
-
-    .cert-name {
-        font-size: 1.25rem;
-    }
-
-    .cert-desc {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-    }
-
-    /* Make link action easily tappable on mobile */
-    .cert-action-link {
-        padding: 0.5rem 0;
-        font-size: 1rem;
+/* ===== Tablet (768px - 1024px) ===== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

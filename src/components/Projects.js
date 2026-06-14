@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import ResponsiveImage from './ResponsiveImage';
 import bus_tracking from '../images/bus_tracking.png';
 import bus_payment from '../images/bus_payment.png';
 import bus_seats from '../images/bus_seats.png';
@@ -9,6 +10,7 @@ import './Projects.css';
 const Projects = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartRef = useRef(null);
 
   const screenshots = [
     bus_tracking,
@@ -34,6 +36,39 @@ const Projects = () => {
     return displayed;
   };
 
+  // Swipe gesture support
+  const handleTouchStart = useCallback((e) => {
+    touchStartRef.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback((e) => {
+    if (touchStartRef.current === null) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStartRef.current - touchEnd;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        // Swipe left — next
+        setCurrentIndex((prev) => (prev + 1) % screenshots.length);
+      } else {
+        // Swipe right — previous
+        setCurrentIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
+      }
+    }
+    touchStartRef.current = null;
+  }, [screenshots.length]);
+
+  // Close modal on Escape
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && selectedImage) {
+        setSelectedImage(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage]);
+
   return (
     <section id="Projects" className="projects-section">
       <div className="container">
@@ -43,12 +78,33 @@ const Projects = () => {
         <div className="projects-grid">
           {/* Where Is My Bus Project */}
           <div className="project-card large">
-            <div className="project-visuals-fixed">
+            <div
+              className="project-visuals-fixed"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <div className="fixed-grid-container">
                 {getDisplayImages().map((img, index) => (
                   <div key={index} className="fixed-image-wrapper" onClick={() => setSelectedImage(img)}>
-                    <img src={img} alt={`Feature ${index + 1}`} className="fade-in" />
+                    <ResponsiveImage
+                      src={img}
+                      alt={`Where Is My Bus — feature screenshot ${index + 1}`}
+                      className="fade-in"
+                      aspectRatio="16 / 9"
+                      sizes="(max-width: 767px) 45vw, (max-width: 1024px) 130px, 160px"
+                    />
                   </div>
+                ))}
+              </div>
+              {/* Carousel dots */}
+              <div className="carousel-dots" aria-label="Image carousel navigation">
+                {screenshots.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`carousel-dot ${i === currentIndex ? 'active' : ''}`}
+                    onClick={() => setCurrentIndex(i)}
+                    aria-label={`Go to image ${i + 1}`}
+                  />
                 ))}
               </div>
             </div>
@@ -90,10 +146,10 @@ const Projects = () => {
                   <h5>Code & Documentation</h5>
                   <div className="action-buttons">
                     <a href="https://github.com/raahulsingh/whereismybususerportal" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                      GitHub Repo <i className="fab fa-github"></i>
+                      GitHub Repo <i className="fab fa-github" aria-hidden="true"></i>
                     </a>
                     <a href={`${process.env.PUBLIC_URL}/app-debug.apk`} download="whereismybus-tracker.apk" className="btn btn-outline">
-                      Tracker App <i className="fas fa-download"></i>
+                      Tracker App <i className="fas fa-download" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
@@ -102,10 +158,10 @@ const Projects = () => {
                   <h5>Live Portals</h5>
                   <div className="portal-buttons">
                     <a href="https://whereismybususerportal.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-small">
-                      User <i className="fas fa-external-link-alt"></i>
+                      User <i className="fas fa-external-link-alt" aria-hidden="true"></i>
                     </a>
                     <a href="https://whereismybusagent.vercel.app/buses" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-small">
-                      Agent <i className="fas fa-external-link-alt"></i>
+                      Agent <i className="fas fa-external-link-alt" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
@@ -117,9 +173,20 @@ const Projects = () => {
 
       {/* Modal for Enlarged Image */}
       {selectedImage && (
-        <div className="image-modal" onClick={() => setSelectedImage(null)}>
+        <div
+          className="image-modal"
+          onClick={() => setSelectedImage(null)}
+          role="dialog"
+          aria-label="Enlarged image view"
+        >
           <div className="modal-content">
-            <span className="close-button">&times;</span>
+            <button
+              className="close-button"
+              onClick={() => setSelectedImage(null)}
+              aria-label="Close image modal"
+            >
+              &times;
+            </button>
             <img src={selectedImage} alt="Enlarged screenshot" />
           </div>
         </div>

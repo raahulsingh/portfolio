@@ -18,9 +18,15 @@ const Footer = () => {
             <a href="#Contact">Contact</a>
           </div>
           <div className="footer-socials">
-            <a href="https://github.com/raahulsingh" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/rahulkumar6474/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
-            <a href="mailto:rahulsingh.11gts@gmail.com"><i className="fas fa-envelope"></i></a>
+            <a href="https://github.com/raahulsingh" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+              <i className="fab fa-github" aria-hidden="true"></i>
+            </a>
+            <a href="https://linkedin.com/in/rahulkumar6474/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <i className="fab fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:rahulsingh.11gts@gmail.com" aria-label="Send email">
+              <i className="fas fa-envelope" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
         <div className="footer-bottom">

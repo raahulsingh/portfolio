@@ -1,14 +1,15 @@
 .resume-section {
-    padding: 6rem 2rem;
+    padding: clamp(2rem, 5vw, 6rem) clamp(1rem, 3vw, 2rem);
     background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
     position: relative;
+    contain: layout paint;
 }
 
 .resume-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem;
-    margin: 4rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1.5rem, 3vw, 3rem);
+    margin: clamp(2rem, 4vw, 4rem) 0;
 }
 
 .resume-column {
@@ -20,13 +21,13 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .column-header i {
-    font-size: 1.6rem;
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
     background: linear-gradient(135deg, #3b82f6, #8b5cf6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -34,7 +35,7 @@
 
 .column-header .subsection-title {
     margin-bottom: 0;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
     color: #fff;
     font-weight: 700;
 }
@@ -42,32 +43,39 @@
 /* Stunning Premium Timeline */
 .timeline {
     position: relative;
-    padding-left: 2rem;
+    padding-left: clamp(1.2rem, 2vw, 2rem);
     border-left: 2px solid rgba(59, 130, 246, 0.2);
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 2.5rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
     background: rgba(255, 255, 255, 0.015);
     border: 1px solid rgba(255, 255, 255, 0.04);
-    padding: 2rem;
-    border-radius: 20px;
+    padding: clamp(1.2rem, 2.5vw, 2rem);
+    border-radius: clamp(14px, 2vw, 20px);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
 
-.timeline-item:hover {
+@media (hover: hover) {
+    .timeline-item:hover {
+        border-color: rgba(59, 130, 246, 0.3);
+        transform: translateX(5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        background: rgba(255, 255, 255, 0.025);
+    }
+}
+
+.timeline-item:active {
     border-color: rgba(59, 130, 246, 0.3);
-    transform: translateX(5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    background: rgba(255, 255, 255, 0.025);
 }
 
 .timeline-dot {
     position: absolute;
-    left: -39px;
-    top: 2rem;
+    left: calc(-1 * clamp(1.2rem, 2vw, 2rem) - 9px);
+    top: clamp(1.2rem, 2.5vw, 2rem);
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -77,14 +85,16 @@
     transition: all 0.3s ease;
 }
 
-.timeline-item:hover .timeline-dot {
-    background: #8b5cf6;
-    box-shadow: 0 0 20px #8b5cf6;
-    transform: scale(1.2);
+@media (hover: hover) {
+    .timeline-item:hover .timeline-dot {
+        background: #8b5cf6;
+        box-shadow: 0 0 20px #8b5cf6;
+        transform: scale(1.2);
+    }
 }
 
 .resume-title {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 2vw, 1.3rem);
     margin-top: 0;
     margin-bottom: 0.4rem;
     color: #fff;
@@ -92,7 +102,7 @@
 }
 
 .resume-sub-info {
-    font-size: 0.85rem;
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
     color: #60a5fa;
     font-weight: 600;
     margin-bottom: 1.2rem;
@@ -115,7 +125,7 @@
     padding-left: 1.5rem;
     margin-bottom: 0.8rem;
     color: #bbb;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 1.3vw, 0.95rem);
     line-height: 1.6;
 }
 
@@ -131,31 +141,38 @@
     color: #bbb;
     line-height: 1.7;
     margin: 0;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 1.3vw, 0.95rem);
 }
 
 /* Premium Certification List */
 .certification-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: clamp(1rem, 2vw, 1.5rem);
 }
 
 .cert-item {
     background: rgba(255, 255, 255, 0.015);
-    padding: 1.8rem;
-    border-radius: 20px;
+    padding: clamp(1.2rem, 2vw, 1.8rem);
+    border-radius: clamp(14px, 2vw, 20px);
     border: 1px solid rgba(255, 255, 255, 0.04);
     position: relative;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
 
-.cert-item:hover {
+@media (hover: hover) {
+    .cert-item:hover {
+        border-color: rgba(139, 92, 246, 0.4);
+        background: rgba(139, 92, 246, 0.03);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.cert-item:active {
     border-color: rgba(139, 92, 246, 0.4);
-    background: rgba(139, 92, 246, 0.03);
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .cert-badge {
@@ -172,31 +189,33 @@
 }
 
 .cert-title {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
     margin: 0 0 0.4rem 0;
     color: #fff;
     font-weight: 700;
+    padding-right: 4rem; /* don't collide with badge */
 }
 
 .cert-info {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
     color: #888;
     margin: 0;
 }
 
 /* Download Box */
 .resume-download-box {
-    margin-top: 5rem;
-    padding: 3.5rem 2rem;
+    margin-top: clamp(2rem, 5vw, 5rem);
+    padding: clamp(2rem, 4vw, 3.5rem) clamp(1.2rem, 3vw, 2rem);
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
-    border-radius: 24px;
+    border-radius: clamp(16px, 2vw, 24px);
     border: 1px solid rgba(255, 255, 255, 0.06);
     text-align: center;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .resume-download-box p {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     color: #ddd;
     margin-bottom: 1.8rem;
     font-weight: 500;
@@ -206,104 +225,53 @@
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
-    padding: 1rem 2.5rem;
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
     border-radius: 14px;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
     background: linear-gradient(135deg, #3b82f6, #60a5fa);
     color: #fff;
     border: none;
     box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
     transition: all 0.3s ease;
     text-decoration: none;
+    min-height: 44px;
+    min-width: 44px;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.resume-download-box .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6);
+.resume-download-box .btn:active {
+    transform: scale(0.97);
 }
 
-/* Ultra Premium Mobile Customizations */
-@media (max-width: 768px) {
-    .resume-section {
-        padding: 4rem 1.2rem;
+@media (hover: hover) {
+    .resume-download-box .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6);
     }
+}
 
+/* ===== Mobile (< 768px) ===== */
+@media (max-width: 767px) {
     .resume-grid {
-        gap: 2.5rem;
-        margin: 2.5rem 0;
-    }
-
-    .column-header {
-        margin-bottom: 2rem;
-    }
-
-    .timeline {
-        padding-left: 1.5rem;
-    }
-
-    .timeline-item {
-        padding: 1.5rem 1.2rem;
-        border-radius: 16px;
-        margin-bottom: 1.8rem;
+        grid-template-columns: 1fr;
     }
 
     .timeline-dot {
-        left: -31px;
-        top: 1.5rem;
+        left: -27px;
         width: 14px;
         height: 14px;
-    }
-
-    .resume-title {
-        font-size: 1.15rem;
-    }
-
-    .resume-sub-info {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.6rem;
-        margin-bottom: 1rem;
-    }
-
-    .resume-list li {
-        font-size: 0.9rem;
-    }
-
-    .resume-text {
-        font-size: 0.9rem;
-    }
-
-    .cert-item {
-        padding: 1.5rem 1.2rem;
-        border-radius: 16px;
-    }
-
-    .cert-title {
-        font-size: 1.1rem;
-        padding-right: 4rem; /* ensure it doesn't collide with score badge */
-    }
-
-    .cert-badge {
-        top: 1rem;
-        right: 1rem;
-        font-size: 0.75rem;
-        padding: 4px 10px;
-    }
-
-    .resume-download-box {
-        margin-top: 3.5rem;
-        padding: 2.5rem 1.2rem;
-        border-radius: 20px;
-    }
-
-    .resume-download-box p {
-        font-size: 1.1rem;
     }
 
     .resume-download-box .btn {
         width: 100%;
         justify-content: center;
-        padding: 0.9rem 1.5rem;
-        font-size: 0.95rem;
+    }
+}
+
+/* ===== Tablet (768px - 1024px) ===== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .resume-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

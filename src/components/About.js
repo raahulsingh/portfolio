@@ -1,5 +1,6 @@
-import profilePic from '../your-photo.jpg'; // Assuming your image is in the parent directory
+import profilePic from '../your-photo.jpg';
 import './About.css';
+import ResponsiveImage from './ResponsiveImage';
 
 const About = () => {
   return (
@@ -8,11 +9,20 @@ const About = () => {
         <h2 className="section-title">About Me</h2>
         <p className="section-subtitle">Get to know more about my background, skills, and what drives me as a developer</p>
         
-        {/* New main container for the two-column layout */}
+        {/* Main container for the two-column layout */}
         <div className="about-main-content">
           {/* Left Column for the Image */}
           <div className="about-left-col">
-            <img src={profilePic} alt="Rahul Kumar" className="profile-img" />
+            <ResponsiveImage
+              src={profilePic}
+              alt="Rahul Kumar — MCA student and backend developer"
+              className="profile-img"
+              width={220}
+              height={220}
+              aspectRatio="1"
+              loading="lazy"
+              sizes="(max-width: 767px) 140px, (max-width: 1024px) 180px, 220px"
+            />
           </div>
 
           {/* Right Column for the Text and Skills */}
@@ -24,9 +34,9 @@ const About = () => {
               <p>I am a certified Java developer from <strong>IIT Bombay (Score: 97.50%)</strong> and have spent significant time mastering Data Structures, Algorithms, and System Design. My goal is to leverage my expertise in Java, Spring Boot, and cloud-native technologies to contribute to high-impact enterprise applications.</p>
             </div>
           </div>
-        </div> {/* Close about-main-content */}
+        </div>
 
-        {/* Container for skills and interests, below the main content */}
+        {/* Container for skills and interests */}
         <div className="skills-and-interests-container">
           <div className="tech-skills-card">
             <h3 className="subsection-title">Technical Skills</h3>
@@ -53,7 +63,7 @@ const About = () => {
             <span className="tag">System Design</span>
             <span className="tag">Automated Testing</span>
           </div>
-        </div> {/* Close skills-and-interests-container */}
+        </div>
 
       </div>
     </section>

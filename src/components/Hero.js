@@ -20,7 +20,7 @@ const Hero = ({ setActiveSection }) => {
   return (
     <section id="home" className="hero-section">
       {/* Dynamic Background Elements */}
-      <div className="hero-bg-shapes">
+      <div className="hero-bg-shapes" aria-hidden="true">
         <div className="shape shape-1"></div>
         <div className="shape shape-2"></div>
         <div className="shape shape-3"></div>
@@ -36,7 +36,7 @@ const Hero = ({ setActiveSection }) => {
 
           <div className="typing-container">
             <span className="static-text">Specializing in</span>
-            <div className="dynamic-role">
+            <div className="dynamic-role" aria-live="polite">
               {roles[currentRoleIndex]}
             </div>
           </div>
@@ -57,20 +57,20 @@ const Hero = ({ setActiveSection }) => {
 
 
           <div className="hero-social-strip">
-            <a href="https://github.com/raahulsingh" target="_blank" rel="noopener noreferrer" title="GitHub">
-              <i className="fab fa-github"></i>
+            <a href="https://github.com/raahulsingh" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub profile">
+              <i className="fab fa-github" aria-hidden="true"></i>
             </a>
-            <a href="https://linkedin.com/in/rahulkumar6474/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-              <i className="fab fa-linkedin"></i>
+            <a href="https://linkedin.com/in/rahulkumar6474/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+              <i className="fab fa-linkedin" aria-hidden="true"></i>
             </a>
-            <a href="mailto:rahulsingh.11gts@gmail.com" title="Email">
-              <i className="fas fa-envelope"></i>
+            <a href="mailto:rahulsingh.11gts@gmail.com" title="Email" aria-label="Send email">
+              <i className="fas fa-envelope" aria-hidden="true"></i>
             </a>
           </div>
         </div>
 
         {/* Floating Tech Stack (Visual decoration) */}
-        <div className="floating-icons">
+        <div className="floating-icons" aria-hidden="true">
           <i className="fab fa-java tech-icon java"></i>
           <i className="fab fa-react tech-icon react"></i>
           <i className="fas fa-leaf tech-icon spring"></i>
@@ -78,7 +78,7 @@ const Hero = ({ setActiveSection }) => {
         </div>
       </div>
 
-      <div className="scroll-down-wrapper">
+      <div className="scroll-down-wrapper" aria-hidden="true">
         <div className="scroll-line"></div>
         <span>EXPLORE</span>
       </div>

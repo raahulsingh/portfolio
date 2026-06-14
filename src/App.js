@@ -8,6 +8,8 @@ import Navbar from './components/Navbar';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Footer from './components/Footer.js';
+import BackToTop from './components/BackToTop';
+import BottomNav from './components/BottomNav';
 
 function App() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -16,14 +18,18 @@ function App() {
     <div className="App">
       <Navbar setActiveSection={setActiveSection} />  
       
-      {activeSection === 'hero' && <Hero setActiveSection={setActiveSection} />}
-      {activeSection === 'about' && <About />}
-      {activeSection === 'resume' && <Resume />}
-      {activeSection === 'projects' && <Projects />}
-      {activeSection === 'certifications' && <Certifications />}
-      {activeSection === 'contact' && <Contact />}
+      <main id="main-content">
+        {activeSection === 'hero' && <Hero setActiveSection={setActiveSection} />}
+        {activeSection === 'about' && <About />}
+        {activeSection === 'resume' && <Resume />}
+        {activeSection === 'projects' && <Projects />}
+        {activeSection === 'certifications' && <Certifications />}
+        {activeSection === 'contact' && <Contact />}
+      </main>
       
       <Footer />
+      <BackToTop />
+      <BottomNav activeSection={activeSection} setActiveSection={setActiveSection} />
     </div>
   );
 }

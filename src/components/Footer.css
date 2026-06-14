@@ -1,6 +1,6 @@
 .footer {
     background-color: #0a0a0a;
-    padding: 4rem 2rem 2rem;
+    padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 3vw, 2rem) clamp(1.5rem, 2vw, 2rem);
     border-top: 1px solid #222;
 }
 
@@ -9,12 +9,12 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: clamp(1rem, 2.5vw, 2rem);
+    margin-bottom: clamp(1.5rem, 3vw, 3rem);
 }
 
 .logo-text {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
     font-weight: 800;
     background: linear-gradient(90deg, #3b82f6, #60a5fa);
     -webkit-background-clip: text;
@@ -23,18 +23,29 @@
 
 .footer-links {
     display: flex;
-    gap: 2rem;
+    gap: clamp(1rem, 2vw, 2rem);
+    flex-wrap: wrap;
 }
 
 .footer-links a {
     color: #888;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 1.2vw, 0.9rem);
     transition: color 0.3s ease;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.footer-links a:hover {
+.footer-links a:active {
     color: #3b82f6;
+}
+
+@media (hover: hover) {
+    .footer-links a:hover {
+        color: #3b82f6;
+    }
 }
 
 .footer-socials {
@@ -46,21 +57,33 @@
     color: #666;
     font-size: 1.2rem;
     transition: all 0.3s ease;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.footer-socials a:hover {
+.footer-socials a:active {
     color: #3b82f6;
-    transform: translateY(-3px);
+}
+
+@media (hover: hover) {
+    .footer-socials a:hover {
+        color: #3b82f6;
+        transform: translateY(-3px);
+    }
 }
 
 .footer-bottom {
-    padding-top: 2rem;
+    padding-top: clamp(1rem, 2vw, 2rem);
     border-top: 1px solid #1a1a1a;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #555;
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 1.2vw, 0.85rem);
 }
 
 .made-with i {
@@ -70,20 +93,43 @@
 .fa-react { color: #61dafb; }
 .fa-heart { color: #ef4444; }
 
-@media (max-width: 768px) {
+/* ===== Mobile (< 768px) ===== */
+@media (max-width: 767px) {
+    .footer {
+        /* Extra bottom padding for bottom nav clearance */
+        padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+    }
+
     .footer-content {
         flex-direction: column;
         text-align: center;
     }
     
     .footer-links {
-        flex-direction: column;
-        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
     }
     
     .footer-bottom {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+    }
+}
+
+/* ===== Tablet (768px - 1024px) ===== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .footer-content {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        justify-content: center;
     }
 }
